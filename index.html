@@ -7,25 +7,25 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #03140a;
-            --secondary-color: rgba(6, 28, 15, 0.92);
-            --accent-color: #00ff66; /* Neon green */
-            --accent-glow: rgba(0, 255, 102, 0.4);
-            --text-color: #c0ded0; /* Light greenish-grey */
-            --sub-text-color: #7b9e8b;
+            --primary-bg: #e6f4f1;
+            --panel-bg: rgba(255, 255, 255, 0.75);
+            --accent-color: #0077b6; /* Oceanic Aero Blue */
+            --accent-secondary: #2dc653; /* Soft nature green */
+            --text-color: #2b2d42;
+            --sub-text-color: #5c677d;
         }
 
         body {
-            background-color: var(--primary-color);
-            background-image: linear-gradient(rgba(3, 20, 10, 0.75), rgba(3, 20, 10, 0.85)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920&auto=format&fit=crop');
+            background-color: var(--primary-bg);
+            background-image: linear-gradient(rgba(230, 244, 241, 0.5), rgba(200, 230, 220, 0.6)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: var(--text-color);
-            font-family: 'Fira Code', monospace;
+            font-family: 'Quicksand', sans-serif;
             overflow-x: hidden;
             display: flex;
             justify-content: center;
@@ -35,62 +35,45 @@
         }
 
         .cv-container {
-            background-color: var(--secondary-color);
-            backdrop-filter: blur(12px);
-            border: 2px solid var(--accent-color);
-            box-shadow: 0 0 35px var(--accent-glow);
+            background-color: var(--panel-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 35px rgba(0, 119, 182, 0.15), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                        inset 0 -10px 20px rgba(0, 119, 182, 0.05);
             width: 100%;
             max-width: 900px;
             padding: 2.5rem;
-            border-radius: 1rem;
+            border-radius: 1.5rem;
             display: flex;
             flex-direction: column;
             gap: 2rem;
             position: relative;
-            animation: containerGlow 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes containerGlow {
-            0% { box-shadow: 0 0 25px rgba(0, 255, 102, 0.2); }
-            100% { box-shadow: 0 0 40px rgba(0, 255, 102, 0.45); }
-        }
-        
-        .cv-container:before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            background: linear-gradient(45deg, var(--accent-color), transparent);
-            filter: blur(12px);
-            opacity: 0.35;
-            z-index: -1;
-            pointer-events: none;
         }
 
         .section-header {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.4rem;
-            margin-bottom: 1.2rem;
-            text-shadow: 0 0 8px var(--accent-color);
+            border-bottom: 2px solid rgba(0, 119, 182, 0.2);
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
         }
 
         .item-title {
             color: var(--accent-color);
-            font-weight: 600;
-            transition: text-shadow 0.3s ease;
+            font-weight: 700;
+            transition: color 0.2s ease;
         }
         
         .item-title:hover {
-            text-shadow: 0 0 6px var(--accent-color);
+            color: #03045e;
         }
         
         .item-subtitle {
-            font-weight: 400;
+            font-weight: 500;
             font-size: 0.85rem;
             color: var(--sub-text-color);
         }
@@ -109,30 +92,31 @@
 
         .contact-item a, .contact-item span {
             color: var(--text-color);
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
 
         .contact-item a:hover {
             color: var(--accent-color);
-            text-shadow: 0 0 6px var(--accent-color);
         }
 
         .skill-badge {
-            background: rgba(0, 255, 102, 0.08);
-            border: 1px solid rgba(0, 255, 102, 0.3);
-            padding: 0.2rem 0.6rem;
-            border-radius: 0.3rem;
-            font-size: 0.8rem;
+            background: linear-gradient(135deg, rgba(0, 119, 182, 0.1), rgba(45, 198, 83, 0.1));
+            border: 1px solid rgba(0, 119, 182, 0.25);
+            padding: 0.25rem 0.65rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
             color: var(--accent-color);
             display: inline-block;
             margin: 0.2rem;
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease;
         }
 
         .skill-badge:hover {
-            background: rgba(0, 255, 102, 0.2);
-            box-shadow: 0 0 8px var(--accent-color);
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, rgba(0, 119, 182, 0.2), rgba(45, 198, 83, 0.2));
+            border-color: var(--accent-color);
+            transform: translateY(-1px);
         }
 
         @media (min-width: 768px) {
@@ -141,7 +125,7 @@
             }
             .sidebar {
                 flex: 1;
-                border-right: 2px solid rgba(0, 255, 102, 0.3);
+                border-right: 1px solid rgba(0, 119, 182, 0.15);
                 padding-right: 2rem;
             }
             .main-content {
@@ -182,7 +166,7 @@
             <h2 class="section-header">Skills</h2>
             
             <div class="mb-3">
-                <p class="text-xs font-bold text-white mb-1">Software & Web</p>
+                <p class="text-xs font-bold text-[var(--text-color)] mb-1">Software & Web</p>
                 <span class="skill-badge">React.js</span>
                 <span class="skill-badge">.NET Framework</span>
                 <span class="skill-badge">C#</span>
@@ -191,7 +175,7 @@
             </div>
 
             <div class="mb-3">
-                <p class="text-xs font-bold text-white mb-1">Hardware & Robotics</p>
+                <p class="text-xs font-bold text-[var(--text-color)] mb-1">Hardware & Robotics</p>
                 <span class="skill-badge">Embedded Systems</span>
                 <span class="skill-badge">Sensor Integration</span>
                 <span class="skill-badge">Hardware Debugging</span>
@@ -199,7 +183,7 @@
             </div>
 
             <div>
-                <p class="text-xs font-bold text-white mb-1">Education & Pedagogy</p>
+                <p class="text-xs font-bold text-[var(--text-color)] mb-1">Education & Pedagogy</p>
                 <span class="skill-badge">STEM Teaching</span>
                 <span class="skill-badge">Coding & Robotics</span>
                 <span class="skill-badge">Instructional Tech</span>
@@ -209,18 +193,18 @@
         <!-- Languages Section -->
         <section class="mb-6">
             <h2 class="section-header">Languages</h2>
-            <ul class="list-disc list-inside space-y-1 ml-2 text-sm text-sub-text-color">
-                <li>English <span class="text-white">(Native/Bilingual)</span></li>
-                <li>German <span class="text-white">(Limited Working)</span></li>
-                <li>French <span class="text-white">(Elementary)</span></li>
-                <li>Japanese <span class="text-white">(Elementary)</span></li>
+            <ul class="list-disc list-inside space-y-1 ml-2 text-sm text-[var(--sub-text-color)]">
+                <li>English <span class="text-[var(--text-color)] font-medium">(Native/Bilingual)</span></li>
+                <li>German <span class="text-[var(--text-color)] font-medium">(Limited Working)</span></li>
+                <li>French <span class="text-[var(--text-color)] font-medium">(Elementary)</span></li>
+                <li>Japanese <span class="text-[var(--text-color)] font-medium">(Elementary)</span></li>
             </ul>
         </section>
 
         <!-- Certifications Section -->
         <section>
             <h2 class="section-header">Certifications</h2>
-            <ul class="list-disc list-inside space-y-1 ml-2 text-xs text-sub-text-color">
+            <ul class="list-disc list-inside space-y-1 ml-2 text-xs text-[var(--sub-text-color)]">
                 <li>Python Data Structures</li>
                 <li>Linux for Data Engineers</li>
                 <li>Using Python to Access Web Data</li>
@@ -235,20 +219,20 @@
         <!-- Header -->
         <header class="flex justify-between items-center mb-6">
             <div>
-                <h1 class="text-2xl font-bold text-white mb-1" style="text-shadow: 0 0 10px rgba(0,255,102,0.5);">Almina Gökçe Çiçek</h1>
-                <p class="text-sm font-semibold" style="color: var(--accent-color);">Junior Software Engineer & Robotics Educator</p>
-                <p class="text-xs font-medium text-sub-text-color">Istanbul, Türkiye</p>
+                <h1 class="text-2xl font-bold text-[var(--text-color)] mb-1">Almina Gökçe Çiçek</h1>
+                <p class="text-sm font-semibold text-[var(--accent-color)]">Junior Software Engineer & Robotics Educator</p>
+                <p class="text-xs font-medium text-[var(--sub-text-color)]">Istanbul, Türkiye</p>
             </div>
             <img src="https://ibb.co/RGgLd7jT" 
                  alt="Almina Gökçe Çiçek profile picture"
-                 onerror="this.src='https://placehold.co/100x100/061c0f/00ff66?text=AG'"
-                 class="w-20 h-20 rounded-full border-2 border-[var(--accent-color)] shadow-lg shadow-[var(--accent-color)] flex-shrink-0 object-cover" />
+                 onerror="this.src='https://placehold.co/100x100/e0f2fe/0077b6?text=AG'"
+                 class="w-20 h-20 rounded-full border-2 border-white shadow-md flex-shrink-0 object-cover" />
         </header>
 
         <!-- Summary Section -->
         <section class="mb-5">
             <h2 class="section-header">Summary</h2>
-            <p class="text-xs leading-relaxed text-sub-text-color">
+            <p class="text-xs leading-relaxed text-[var(--sub-text-color)]">
                 Software Engineering graduate blending full-stack software development experience with a strong background in teaching coding and robotics. Currently pursuing graduate studies and pedagogical formation at Marmara University, bridging technical software engineering expertise with computer education and low-cost hardware prototyping.
             </p>
         </section>
@@ -259,23 +243,23 @@
             <!-- Aktif Tech -->
             <div class="mb-3">
                 <h3 class="item-title text-sm">Aktif Tech Teknoloji A.Ş.</h3>
-                <p class="text-xs text-white mt-0.5">
+                <p class="text-xs text-[var(--text-color)] mt-0.5">
                     <span class="font-bold">Junior Software Engineer</span> | August 2024 - Present
                 </p>
-                <p class="text-xs text-white mt-0.5">
+                <p class="text-xs text-[var(--text-color)] mt-0.5">
                     <span class="font-bold">Paid Intern</span> | September 2023 - July 2024 &bull; <span class="font-bold">Summer Intern</span> | July 2023 - August 2023
                 </p>
-                <p class="text-xs text-sub-text-color mt-1">
+                <p class="text-xs text-[var(--sub-text-color)] mt-1">
                     Contributed to full-stack development within the Web and Open Banking Application Development Division.
                 </p>
             </div>
             <!-- Tera persis -->
             <div>
                 <h3 class="item-title text-sm">Tera persis</h3>
-                <p class="text-xs text-white mt-0.5">
-                    <span class="font-bold">Summer Intern</span> | June 2022 - July 2022 <span class="italic text-sub-text-color">(Istanbul)</span>
+                <p class="text-xs text-[var(--text-color)] mt-0.5">
+                    <span class="font-bold">Summer Intern</span> | June 2022 - July 2022 <span class="italic text-[var(--sub-text-color)]">(Istanbul)</span>
                 </p>
-                <p class="text-xs text-sub-text-color mt-1">
+                <p class="text-xs text-[var(--sub-text-color)] mt-1">
                     Conducted back-end server development and database design using Python.
                 </p>
             </div>
@@ -286,7 +270,7 @@
             <h2 class="section-header">Featured Projects</h2>
             <div class="mb-3">
                 <h3 class="item-title text-sm">Bud-E (Affordable Desk Buddy Robot)</h3>
-                <p class="text-xs text-sub-text-color mt-1">
+                <p class="text-xs text-[var(--sub-text-color)] mt-1">
                     Building a low-cost desktop companion using accessible off-the-shelf components. Troubleshot clone MPU6050 IMU chips by custom-tweaking Adafruit libraries, gaining hands-on hardware debugging experience under budget constraints.
                 </p>
             </div>
@@ -302,11 +286,11 @@
                 </div>
                 <div>
                     <h3 class="item-title text-sm">Maltepe University</h3>
-                    <p class="item-subtitle">Bachelor's Degree, Software Engineering <span class="text-sub-text-color">(2021 - 2024)</span></p>
+                    <p class="item-subtitle">Bachelor's Degree, Software Engineering <span class="text-[var(--sub-text-color)]">(2021 - 2024)</span></p>
                 </div>
                 <div>
                     <h3 class="item-title text-sm">Yeditepe University</h3>
-                    <p class="item-subtitle">Bachelor's Degree, Computer Engineering <span class="text-sub-text-color">(2019 - 2021)</span></p>
+                    <p class="item-subtitle">Bachelor's Degree, Computer Engineering <span class="text-[var(--sub-text-color)]">(2019 - 2021)</span></p>
                 </div>
             </div>
         </section>
